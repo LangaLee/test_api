@@ -12,10 +12,9 @@ const getWaiters = async () => {
     const database = client.db("testing_mongo");
     const items = database.collection("user_1_items");
     const result = await items.findOne({ name: "Bender" });
-    console.log(result);
     return result;
-  } catch (error) {
-    console.log(error);
+  } finally {
+    await client.close();
   }
 };
 // https://www.youtube.com/watch?v=084rmLU1UgA&list=PL4cUxeGkcC9h77dJ-QJlwGlZlTd4ecZOA&index=25

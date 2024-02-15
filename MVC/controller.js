@@ -2,7 +2,8 @@ const { getWaiters } = require("./models");
 const fetchWaiters = async (req, res) => {
   try {
     const response = await getWaiters();
-    res.status(200).send(response);
+    const waiter = response;
+    res.status(200).send(waiter);
   } catch (error) {
     console.log(error);
   }

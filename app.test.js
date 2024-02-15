@@ -5,6 +5,7 @@ const db = require("./db/connection");
 describe("testing database", () => {
   test("200: /api/waiters", async () => {
     const response = await request(app).get("/api/waiters");
-    console.log(response.data);
+    const { waiter } = response.body;
+    expect(response.status).toBe(200);
   });
 });
